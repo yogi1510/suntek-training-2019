@@ -1,0 +1,35 @@
+\\using iteration
+#include <stdio.h>
+
+int main()
+{
+int x,n,i,p=1;
+printf("enter x and n values");
+scanf("%d%d",&x,&n);
+for(i=0;i<n;i++)
+{
+p=p*x;
+}
+printf("%d",p);
+return 0;
+}
+
+
+\\using recursive
+#include <stdio.h>
+int power(int,int);
+int main()
+{
+int x,n,i,p=1;
+printf("enter x and n values");
+scanf("%d%d",&x,&n);
+printf("%d",power(x,n));
+return 0;
+}
+int power(int x,int n)
+{
+    if(n==0)
+    return 1;
+    else
+    return x*power(x,n-1);
+}

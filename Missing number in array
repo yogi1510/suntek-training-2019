@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main() 
+{ 
+    int a[100],n,miss;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    scanf("%d",&a[i]);
+    miss=getMissingNo(a, n);
+    printf("%d",miss);
+}
+ 
+int getMissingNo(int a[], int n) 
+{ 
+  
+    int total = (n + 1) * (n + 2) / 2; 
+    for (int i = 0; i < n; i++) 
+        total -= a[i]; 
+    return total; 
+} 

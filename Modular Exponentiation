@@ -1,0 +1,59 @@
+\\iteration
+#include <stdio.h>
+int power(int x, int y, int p)
+
+{
+    int res = 1;
+    x = x % p;
+
+    while (y > 0)
+    {
+        if (y & 1)
+            res = (res*x) % p;
+
+        y = y>>1;
+        x = (x*x) % p;
+    }
+    return res;
+}
+
+int main()
+{
+   int x,y,p;
+   printf("enter x y p values");
+   scanf("%d%d%d",&x,&y,&p);
+   printf("Power is %d", power(x, y, p));
+   return 0;
+}
+
+
+\\with recursive
+#include<stdio.h>
+int pow(int x,int n);
+int mod(int b,int m);
+int main()
+{
+    int x,n,m,b;
+    printf("enter the number");
+    scanf("%d",&x);
+    printf("enter the power ");
+    scanf("%d",&n);
+    printf("enter the values of m");
+    scanf("%d",&m);
+    b=pow(x,n);
+    printf("%d",mod(b,m));
+    return 0;
+}
+int pow(int x,int n)
+{
+    if(n==0)
+    return 1;
+    return x*pow(x,n-1);
+}
+int mod(int b,int m)
+{
+    if((b-m)<0)
+    return b;
+    else
+    return mod(b-m,m);
+}
